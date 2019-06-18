@@ -10,7 +10,7 @@ public class HashMap {
     }
 
 
-    public void put(final Integer key, final Long value) {
+    public void put(Integer key, Long value) {
         if (size + 1 >= threshold) {
             threshold *= 2;
             arrayDoubling();

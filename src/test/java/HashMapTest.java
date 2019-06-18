@@ -55,7 +55,11 @@ public class HashMapTest {
 
     @Test
     public void get() {
-        Assert.assertEquals(hashMap.get(9920), new Long(1800L));
+        Assert.assertEquals(hashMap.get(2), new Long(120L));
+        Assert.assertEquals(hashMap.get(0), new Long(120L));
+        Assert.assertEquals(hashMap.get(-40), new Long(200L));
+        Assert.assertEquals(hashMap.get(150), new Long(300L));
+
     }
 
     @Test
