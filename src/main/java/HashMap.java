@@ -16,27 +16,22 @@ public class HashMap {
             arrayDoubling();
         }
 
-        while (true) {
-            int firstHash = mod(key, hashTable.length);
-            int secondHash = 1 + mod(key, hashTable.length - 1);
+        int firstHash = mod(key, hashTable.length);
+        int secondHash = 1 + mod(key, hashTable.length - 1);
 
-            for (int i = 0; i < hashTable.length; i++) {
-                int index = mod(firstHash + i * secondHash, hashTable.length);
+        for (int i = 0; i < hashTable.length; i++) {
+            int index = mod(firstHash + i * secondHash, hashTable.length);
 
-                if (hashTable[index] != null &&
-                        key.equals(hashTable[index].key)) {
-                    hashTable[index].setValue(value);
+            if (hashTable[index] != null &&
+                    key.equals(hashTable[index].key)) {
+                hashTable[index].setValue(value);
 
-                    return;
-                } else if (hashTable[index] == null) {
-                    hashTable[index] = new Node(key, value);
-                    size++;
+                return;
+            } else if (hashTable[index] == null) {
+                hashTable[index] = new Node(key, value);
+                size++;
 
-                    return;
-                }
-
-                threshold *= 2;
-                arrayDoubling();
+                return;
             }
         }
     }
@@ -45,8 +40,6 @@ public class HashMap {
         int result;
 
         result = firstNumber % secondNumber;
-
-
         if (result < 0) {
             result += secondNumber;
         }
