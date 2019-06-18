@@ -23,8 +23,8 @@ public class HashMap {
             for (int i = 0; i < hashTable.length; i++) {
                 int index = mod(firstHash + i * secondHash, hashTable.length);
 
-                if (hashTable[index] != null && (key == null ||
-                        key.equals(hashTable[index].key))) {
+                if (hashTable[index] != null &&
+                        key.equals(hashTable[index].key)) {
                     hashTable[index].setValue(value);
 
                     return;
@@ -43,11 +43,9 @@ public class HashMap {
 
     private int mod(Integer firstNumber, Integer secondNumber) {
         int result;
-        if (firstNumber == null) {
-            result = 0;
-        } else {
-            result = firstNumber % secondNumber;
-        }
+
+        result = firstNumber % secondNumber;
+
 
         if (result < 0) {
             result += secondNumber;
@@ -60,6 +58,7 @@ public class HashMap {
         Node[] tempHashTable = hashTable;
         hashTable = new Node[2 * hashTable.length];
 
+        size = 0;
         for (Node node : tempHashTable) {
             if (node != null) {
                 put(node.key, node.value);
@@ -74,8 +73,8 @@ public class HashMap {
         for (int i = 0; i < hashTable.length; i++) {
             int index = mod(firstHash + i * secondHash, hashTable.length);
 
-            if (hashTable[index] != null && (key == null ||
-                    key.equals(hashTable[index].key))) {
+            if (hashTable[index] != null &&
+                    key.equals(hashTable[index].key)) {
 
                 return hashTable[index].getValue();
             }

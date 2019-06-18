@@ -8,8 +8,8 @@ public class HashMapTest {
 
     @Before
     public void setUp() throws Exception {
-        hashMap.put(null, 120L);
-        hashMap.put(1, 100L);
+        hashMap.put(2, 120L);
+        hashMap.put(0, 100L);
         hashMap.put(-40, 200L);
         hashMap.put(150, 300L);
         hashMap.put(500, 50L);
@@ -20,7 +20,7 @@ public class HashMapTest {
         hashMap.put(90, 170000L);
         hashMap.put(Integer.MIN_VALUE, 900L);
         hashMap.put(Integer.MIN_VALUE, 1L);
-        hashMap.put(null, 1000000L);
+        hashMap.put(3, 4L);
         hashMap.put(920, 105L);
         hashMap.put(80000, 10L);
         hashMap.put(4005, 190000L);
@@ -53,19 +53,13 @@ public class HashMapTest {
         hashMap.put(9820, 1800L);
     }
 
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void get() {
-        Assert.assertEquals(hashMap.get(null), new Long(1000000L));
         Assert.assertEquals(hashMap.get(9920), new Long(1800L));
     }
 
     @Test
     public void size() {
-        Assert.assertEquals(hashMap.size(), 157);
+        Assert.assertEquals(hashMap.size(), 37);
     }
 }
